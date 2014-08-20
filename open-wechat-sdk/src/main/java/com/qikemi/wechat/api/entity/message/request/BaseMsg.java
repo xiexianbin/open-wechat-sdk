@@ -35,11 +35,11 @@ public class BaseMsg {
 	private long MsgId;
 
 	/**             constructor                  **/
-	public BaseMessage() {
+	public BaseMsg() {
 		super();
 	}
 
-	public BaseMessage(String toUserName, String fromUserName, long createTime,
+	public BaseMsg(String toUserName, String fromUserName, long createTime,
 			String msgType, long msgId) {
 		super();
 		ToUserName = toUserName;
