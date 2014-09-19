@@ -1,0 +1,152 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	
+	<groupId>com.qikemi</groupId>
+	<artifactId>open-wechat-sdk</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<packaging>jar</packaging>
+	<name>open-wechat-sdk</name>
+	<description>A Wechat API implementation.</description>
+	<url>https://github.com/qikemi/open-wechat-sdk</url>
+	<inceptionYear>2014</inceptionYear>
+
+	<properties>
+		<junit.version>4.11</junit.version>
+
+		<gpg.skip>true</gpg.skip>
+		<javadoc.skip>true</javadoc.skip>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>local-file</id>
+			<url>file://${basedir}/lib/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	
+	<distributionManagement>
+		<repository>
+			<id>open-wechat-sdk</id>
+			<url>dav:https://git.oschina.net/openwrd/open-wechat-sdk.git</url>
+		</repository>
+		<snapshotRepository>
+			<id>open-wechat-sdk</id>
+			<url></url>
+		</snapshotRepository>
+	</distributionManagement>
+	
+	<developers>
+		<developer>
+			<id>xiexianbin</id>
+			<name>xiexianbin</name>
+			<email>a.b@hotmail.com</email>
+		</developer>
+	</developers>
+	
+	<scm>
+		<url>https://xiexianbin@github.com/qikemi/open-wechat-sdk.git</url>
+		<connection>https://xiexianbin@github.com/qikemi/open-wechat-sdk.git</connection>
+	</scm>
+	
+	<organization>
+		<name>Qikemi Group</name>
+		<url>http://code.qikemi.com/</url>
+	</organization>
+	
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+	
+	<dependencies>
+		<!-- jUnit jar -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Log4j jar -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<!-- fastjson1.1.41 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.41</version>
+		</dependency>
+
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- 编译插件 -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- <version>3.1</version> -->
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 源码插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<forkMode>once</forkMode>
+					<argLine>-Dfile.encoding=UTF-8</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
