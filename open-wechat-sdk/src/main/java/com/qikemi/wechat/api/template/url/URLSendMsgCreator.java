@@ -1,4 +1,4 @@
-package com.qikemi.wechat.api.url;
+package com.qikemi.wechat.api.template.url;
 
 /**
  * 
