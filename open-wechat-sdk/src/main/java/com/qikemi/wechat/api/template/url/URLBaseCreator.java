@@ -21,8 +21,7 @@ public class URLBaseCreator {
 	 * @return
 	 */
 	public static String getAccessTokenURL(String grant_type, String APPID, String APPSECRET){
-		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=" + grant_type + "&appid=" + APPID + "&secret=" + APPSECRET;
-		return url;
+		return "https://api.weixin.qq.com/cgi-bin/token?grant_type=" + grant_type + "&appid=" + APPID + "&secret=" + APPSECRET;
 	}
 	
 	/**
@@ -34,7 +33,6 @@ public class URLBaseCreator {
 	 * @return
 	 */
 	public static String getAccessTokenURL(String APPID, String APPSECRET){
-		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=" + URLBaseCreator.GRANT_TYPE + "&appid=" + APPID + "&secret=" + APPSECRET;
-		return url;
+		return "https://api.weixin.qq.com/cgi-bin/token?grant_type=" + URLBaseCreator.GRANT_TYPE + "&appid=" + APPID + "&secret=" + APPSECRET;
 	}
 }
