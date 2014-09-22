@@ -25,4 +25,13 @@ public class URLPromotionSupportCreator {
 	public static String getShowQRcodeURL(String TICKET){
 		return "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=" + TICKET;
 	}
+	
+	/**
+	 * 获取长链接转短链接接口URL
+	 * @param TOKEN
+	 * @return
+	 */
+	public static String getLong2ShortURL(String TOKEN){
+		return "https://api.weixin.qq.com/cgi-bin/shorturl?access_token=" + TOKEN;
+	}
 }
