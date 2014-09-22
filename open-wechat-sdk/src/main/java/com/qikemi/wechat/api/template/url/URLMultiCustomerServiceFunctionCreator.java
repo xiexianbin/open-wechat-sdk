@@ -8,4 +8,13 @@ package com.qikemi.wechat.api.template.url;
  */
 public class URLMultiCustomerServiceFunctionCreator {
 
+	/**
+	 * 获取客服聊天记录接口URL
+	 * @param ACCESS_TOKEN
+	 * @return
+	 */
+	public static String getCustomerServiceRecordURL(String ACCESS_TOKEN){
+		return "https://api.weixin.qq.com/cgi-bin/customservice/getrecord?access_token=" + ACCESS_TOKEN;
+	}
+	
 }
