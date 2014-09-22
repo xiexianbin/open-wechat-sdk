@@ -14,8 +14,7 @@ public class URLSendMsgCreator {
 	 * @return
 	 */
 	public static String getCustomerServiceMsgURL(String ACCESS_TOKEN){
-		String url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + ACCESS_TOKEN;
-		return url;
+		return "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + ACCESS_TOKEN;
 	}
 	
 	/**
@@ -24,8 +23,7 @@ public class URLSendMsgCreator {
 	 * @return
 	 */
 	public static String getAdvancedMassInterfaceURL(String ACCESS_TOKEN){
-		String url = "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=" + ACCESS_TOKEN;
-		return url;
+		return "https://api.weixin.qq.com/cgi-bin/media/uploadnews?access_token=" + ACCESS_TOKEN;
 	}
 	
 	/**
@@ -34,7 +32,6 @@ public class URLSendMsgCreator {
 	 * @return
 	 */
 	public static String getTemplateMsgInterfaceURL(String ACCESS_TOKEN){
-		String url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + ACCESS_TOKEN;
-		return url;
+		return "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + ACCESS_TOKEN;
 	}
 }
