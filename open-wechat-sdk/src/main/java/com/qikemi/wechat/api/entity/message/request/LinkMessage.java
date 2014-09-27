@@ -3,10 +3,10 @@ package com.qikemi.wechat.api.entity.message.request;
 import com.qikemi.wechat.api.entity.message.RequestBaseMessage;
 
 /**
- * 链接消息
- * @author XieXianbin
- * @version 1.0
- * 
+ * Link Message Bean 
+ * Create Date: 2014年9月27日 下午10:26:29
+ * Author XieXianbin<a.b@hotmail.com>
+ * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
 public class LinkMessage extends RequestBaseMessage {
 	
@@ -68,6 +68,17 @@ public class LinkMessage extends RequestBaseMessage {
 
 	public void setUrl(String url) {
 		Url = url;
+	}
+
+	@Override
+	public String toString() {
+		return "LinkMessage [Title=" + Title + ", Description=" + Description
+				+ ", Url=" + Url + ", getToUserName()=" + getToUserName()
+				+ ", getFromUserName()=" + getFromUserName()
+				+ ", getCreateTime()=" + getCreateTime() + ", getMsgType()="
+				+ getMsgType() + ", getMsgId()=" + getMsgId() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + "]";
 	}
 
 }
