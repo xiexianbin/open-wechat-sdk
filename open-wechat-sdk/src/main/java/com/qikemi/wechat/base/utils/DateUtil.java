@@ -13,9 +13,9 @@ import org.apache.log4j.Logger;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class DateTimeUtil {
+public class DateUtil {
 
-	private static Logger logger = Logger.getLogger(DateTimeUtil.class);
+	private static Logger logger = Logger.getLogger(DateUtil.class);
 	
 	/**
 	 * 20140819
@@ -77,7 +77,7 @@ public class DateTimeUtil {
 	/**
 	 * 默认构造器 
 	 */
-	public DateTimeUtil(){}
+	public DateUtil(){}
 	
 	/**
 	 * 创建指定格式的日期
@@ -87,7 +87,7 @@ public class DateTimeUtil {
 	public static String dateCreater(String dateFormat) {
 		Date date = new Date();
 		if (dateFormat == null || "".equals(dateFormat)) {
-			dateFormat = DateTimeUtil.YYYY_MM_DD__HHMMss;
+			dateFormat = DateUtil.YYYY_MM_DD__HHMMss;
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 		return sdf.format(date);
