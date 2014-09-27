@@ -1,4 +1,4 @@
-package com.qikemi.wechat.api.qrcode.entity;
+package com.qikemi.wechat.api.entity.qrcode;
 
 /**
  * QRcode Bean 
