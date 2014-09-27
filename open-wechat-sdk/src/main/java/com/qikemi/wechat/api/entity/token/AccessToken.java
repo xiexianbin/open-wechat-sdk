@@ -12,45 +12,45 @@ public class AccessToken {
 	/**
 	 *  获取到的凭证
 	 */
-	private String access_token;
+	private String accessToken;
 	
 	/**
 	 *  凭证有效时间，单位：秒
 	 */
-	private int expires_in;
+	private int expiresIn;
 
 	/**             constructor                  **/
 	public AccessToken() {
 		super();
 	}
 
-	public AccessToken(String access_token, int expires_in) {
+	public AccessToken(String accessToken, int expiresIn) {
 		super();
-		this.access_token = access_token;
-		this.expires_in = expires_in;
+		this.accessToken = accessToken;
+		this.expiresIn = expiresIn;
 	}
-
 	/**           getters and setters            **/
-	public String getAccess_token() {
-		return access_token;
+
+	public String getAccessToken() {
+		return accessToken;
 	}
 
-	public void setAccess_token(String access_token) {
-		this.access_token = access_token;
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 
-	public int getExpires_in() {
-		return expires_in;
+	public int getExpiresIn() {
+		return expiresIn;
 	}
 
-	public void setExpires_in(int expires_in) {
-		this.expires_in = expires_in;
+	public void setExpiresIn(int expiresIn) {
+		this.expiresIn = expiresIn;
 	}
 
 	@Override
 	public String toString() {
-		return "AccessToken [access_token=" + access_token + ", expires_in="
-				+ expires_in + "]";
+		return "AccessToken [accessToken=" + accessToken + ", expiresIn="
+				+ expiresIn + "]";
 	}
 	
 }
