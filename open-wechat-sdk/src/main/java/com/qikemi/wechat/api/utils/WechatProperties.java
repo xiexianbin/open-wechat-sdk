@@ -33,17 +33,21 @@ public class WechatProperties {
 	}
 	
 	private Properties getProperties(){
+		InputStream in = null;
 		try {
-	        InputStream in = this.getClass().getResourceAsStream("/wechat.properties");  
+	        in = this.getClass().getResourceAsStream("/wechat.properties");  
 			// 加载属性文件
 			Properties properties = new Properties();
 			properties.load(in);
-			in.close();
 			return properties;
 		} catch (FileNotFoundException e) {
-			logger.warn("FileNotFoundException: ->" + e.getMessage());
+			logger.warn("File [wechat.properties] Not Found Exception: ->" + e.getMessage());
 		} catch (IOException e) {
-			logger.warn("IOException: ->" + e.getMessage());
+			logger.warn("File [wechat.properties] IOException: ->" + e.getMessage());
+		}finally{
+			try {
+				in.close();
+			} catch (IOException e) {}
 		}
 		return null;
 	}
