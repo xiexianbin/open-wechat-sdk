@@ -98,5 +98,17 @@ public class LocationMessage extends RequestBaseMessage {
 	public void setLabel(String label) {
 		Label = label;
 	}
+
+	@Override
+	public String toString() {
+		return "LocationMessage [Location_X=" + Location_X + ", Location_Y="
+				+ Location_Y + ", Scale=" + Scale + ", Label=" + Label
+				+ ", getToUserName()=" + getToUserName()
+				+ ", getFromUserName()=" + getFromUserName()
+				+ ", getCreateTime()=" + getCreateTime() + ", getMsgType()="
+				+ getMsgType() + ", getMsgId()=" + getMsgId() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + "]";
+	}
 	
 }
