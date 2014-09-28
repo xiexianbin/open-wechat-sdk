@@ -4,7 +4,7 @@ package com.qikemi.wechat.api.junit.demo;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import com.qikemi.wechat.base.utils.DateTimeUtil;
+import com.qikemi.wechat.base.utils.DateUtil;
 
 public class DateTimeUtilTest {
 
@@ -12,6 +12,6 @@ public class DateTimeUtilTest {
 	
 	@Test
 	private void test1(){
-		logger.info(DateTimeUtil.getTimeStamp());
+		logger.info(DateUtil.getTimeStamp());
 	}
 }

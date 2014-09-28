@@ -9,19 +9,19 @@ package com.qikemi.wechat.api;
 public class WechatRuntimeException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
-
+	
     public WechatRuntimeException(){
         super();
     }
-
+    
     public WechatRuntimeException(String message, Throwable cause){
         super(message, cause);
     }
-
+    
     public WechatRuntimeException(String message){
         super(message);
     }
-
+    
     public WechatRuntimeException(Throwable cause){
         super(cause);
     }
