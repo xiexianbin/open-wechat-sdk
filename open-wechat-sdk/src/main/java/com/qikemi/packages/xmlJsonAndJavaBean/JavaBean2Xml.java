@@ -1,4 +1,4 @@
-package com.qikemi.packages.xmlandjson;
+package com.qikemi.packages.xmlJsonAndJavaBean;
 
 import org.json.JSONObject;
 import org.json.XML;
@@ -14,5 +14,10 @@ public class JavaBean2Xml {
 	public static String convert2Xml(Object object){
 		JSONObject o = new JSONObject(object);
 		return XML.toString(o);
+	}
+	
+	public static String convert2Xml(Object object, String root){
+		 JSONObject jsonobject = new JSONObject(object);
+		 return XML.toString(jsonobject, root);
 	}
 }

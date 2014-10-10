@@ -1,4 +1,4 @@
-package com.qikemi.packages.xmlandjson;
+package com.qikemi.packages.xmlJsonAndJavaBean;
 
 import org.json.JSONObject;
 import org.json.XML;

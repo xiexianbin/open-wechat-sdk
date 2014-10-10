@@ -1,4 +1,4 @@
-package com.qikemi.packages.xmlandjson;
+package com.qikemi.packages.xmlJsonAndJavaBean;
 
 import com.alibaba.fastjson.JSONObject;
 
