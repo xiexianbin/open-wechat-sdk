@@ -1,19 +1,17 @@
 package com.qikemi.wechat.api.service;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.qikemi.packages.encrypt.md5.MD5OrSHA1Encrypt;
 import com.qikemi.wechat.api.constant.DefaultWechatAccount;
 
 /**
  * 验证签名
  * 
- * Create Date: 2014年9月28日 下午10:16:55
- * Author XieXianbin<a.b@hotmail.com>
- * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
+ * Create Date: 2014年9月28日 下午10:16:55 Author XieXianbin<a.b@hotmail.com> Source
+ * Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
 public class SignService {
 
@@ -54,49 +52,12 @@ public class SignService {
 		for (int i = 0; i < arr.length; i++) {
 			content.append(arr[i]);
 		}
-		MessageDigest md = null;
-		String tmpStr = null;
-		try {
-			md = MessageDigest.getInstance("SHA-1");
-			// 将三个参数字符串拼接成一个字符串进行sha1加密
-			byte[] digest = md.digest(content.toString().getBytes());
-			tmpStr = byteToStr(digest);
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
-		content = null;
+		// 将三个参数字符串拼接成一个字符串进行sha1加密
+		MD5OrSHA1Encrypt md5OrSHA1Encrypt = new MD5OrSHA1Encrypt();
+		@SuppressWarnings("static-access")
+		String tmpStr = md5OrSHA1Encrypt.sha1(content.toString());
 		// 3. 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信
-		return tmpStr != null ? tmpStr.equals(signature.toUpperCase()) : false;
+		return tmpStr != null ? tmpStr.equalsIgnoreCase(signature) : false;
 	}
 
-	/**
-	 * 将字节数组转换为十六进制字符串
-	 * 
-	 * @param byteArray
-	 * @return
-	 */
-	private static String byteToStr(byte[] byteArray) {
-		String strDigest = "";
-		for (int i = 0; i < byteArray.length; i++) {
-			strDigest += byteToHexStr(byteArray[i]);
-		}
-		return strDigest;
-	}
-
-	/**
-	 * 将字节转换为十六进制字符串
-	 * 
-	 * @param mByte
-	 * @return
-	 */
-	private static String byteToHexStr(byte mByte) {
-		char[] Digit = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
-				'B', 'C', 'D', 'E', 'F' };
-		char[] tempArr = new char[2];
-		tempArr[0] = Digit[(mByte >>> 4) & 0X0F];
-		tempArr[1] = Digit[mByte & 0X0F];
-
-		String s = new String(tempArr);
-		return s;
-	}
 }
