@@ -29,19 +29,6 @@ public class SignService {
 		// 随机数
 		String nonce = request.getParameter("nonce");
 
-		return checkSignature(signature, timestamp, nonce);
-	}
-
-	/**
-	 * 验证签名
-	 * 
-	 * @param signature
-	 * @param timestamp
-	 * @param nonce
-	 * @return 是否验证成功
-	 */
-	public static boolean checkSignature(String signature, String timestamp,
-			String nonce) {
 		// 加密/校验流程如下：
 		// 1. 将token、timestamp、nonce三个参数进行字典序排序
 		String[] arr = new String[] { DefaultWechatAccount.TOKEN, timestamp,
