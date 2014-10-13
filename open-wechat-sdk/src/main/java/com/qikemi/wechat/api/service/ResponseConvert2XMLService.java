@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.qikemi.packages.xmlJsonAndJavaBean.JavaBean2Xml;
 import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
-import com.qikemi.wechat.api.entity.message.request.TextMessage;
+import com.qikemi.wechat.api.entity.message.request.ReqTextMessage;
 import com.qikemi.wechat.api.entity.message.response.ResTextMessage;
 
 /**
@@ -22,7 +22,7 @@ public class ResponseConvert2XMLService {
 		super();
 	}
 
-	public String getTextMessage(TextMessage reqTextMessage, String content){
+	public String getTextMessage(ReqTextMessage reqTextMessage, String content){
 		ResTextMessage resTextMessage = new ResTextMessage();
 		resTextMessage.setFromUserName(reqTextMessage.getToUserName());
 		resTextMessage.setToUserName(reqTextMessage.getFromUserName());
