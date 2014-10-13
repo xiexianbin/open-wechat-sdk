@@ -4,8 +4,8 @@ import org.apache.log4j.Logger;
 
 import com.qikemi.packages.xmlJsonAndJavaBean.JavaBean2Xml;
 import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
-import com.qikemi.wechat.api.entity.message.request.ReqTextMessage;
-import com.qikemi.wechat.api.entity.message.response.ResTextMessage;
+import com.qikemi.wechat.api.entity.message.request.ReqTextMsg;
+import com.qikemi.wechat.api.entity.message.response.RespTextMsg;
 
 /**
  * Response Convert 2 XML 
@@ -22,8 +22,8 @@ public class ResponseConvert2XMLService {
 		super();
 	}
 
-	public String getTextMessage(ReqTextMessage reqTextMessage, String content){
-		ResTextMessage resTextMessage = new ResTextMessage();
+	public String getTextMessage(ReqTextMsg reqTextMessage, String content){
+		RespTextMsg resTextMessage = new RespTextMsg();
 		resTextMessage.setFromUserName(reqTextMessage.getToUserName());
 		resTextMessage.setToUserName(reqTextMessage.getFromUserName());
 		resTextMessage.setContent(content);

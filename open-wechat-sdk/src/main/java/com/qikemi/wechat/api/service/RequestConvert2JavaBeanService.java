@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 
 import com.qikemi.packages.xmlJsonAndJavaBean.Xml2JavaBean;
 import com.qikemi.wechat.api.entity.message.MsgTypeBean;
-import com.qikemi.wechat.api.entity.message.request.ReqTextMessage;
+import com.qikemi.wechat.api.entity.message.request.ReqTextMsg;
 
 /**
  * get Accept message Convert 2 JavaBean 
@@ -54,7 +54,7 @@ public class RequestConvert2JavaBeanService {
 		return (MsgTypeBean) Xml2JavaBean.convert2JavaBean(this.xml, MsgTypeBean.class);
 	}
 	
-	public ReqTextMessage getTextMessage(){
-		return (ReqTextMessage) Xml2JavaBean.convert2JavaBean(this.xml, ReqTextMessage.class);
+	public ReqTextMsg getTextMessage(){
+		return (ReqTextMsg) Xml2JavaBean.convert2JavaBean(this.xml, ReqTextMsg.class);
 	}
 }
