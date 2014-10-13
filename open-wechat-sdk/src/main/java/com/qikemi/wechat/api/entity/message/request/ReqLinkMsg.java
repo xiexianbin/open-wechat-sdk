@@ -8,7 +8,7 @@ import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class ReqLinkMessage extends ReqBaseMessage {
+public class ReqLinkMsg extends ReqBaseMessage {
 	
 	/**
 	 * 标题
@@ -26,18 +26,18 @@ public class ReqLinkMessage extends ReqBaseMessage {
 	private String Url;
 
 	/**             constructor                  **/
-	public ReqLinkMessage() {
+	public ReqLinkMsg() {
 		super();
 	}
 
-	public ReqLinkMessage(String title, String description, String url) {
+	public ReqLinkMsg(String title, String description, String url) {
 		super();
 		Title = title;
 		Description = description;
 		Url = url;
 	}
 	
-	public ReqLinkMessage(String toUserName, String fromUserName, long createTime, 
+	public ReqLinkMsg(String toUserName, String fromUserName, long createTime, 
 			String msgType, long msgId, String title, String description, String url) {
 		super(toUserName, fromUserName, createTime, msgType, msgId);
 		Title = title;

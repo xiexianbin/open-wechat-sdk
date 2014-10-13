@@ -8,7 +8,7 @@ import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class ReqLocationMessage extends ReqBaseMessage {
+public class ReqLocationMsg extends ReqBaseMessage {
 	
 	/**
 	 * 地理位置维度
@@ -31,7 +31,7 @@ public class ReqLocationMessage extends ReqBaseMessage {
 	private String Label;
 
 	/**             constructor                  **/
-	public ReqLocationMessage() {
+	public ReqLocationMsg() {
 		super();
 	}
 
@@ -41,7 +41,7 @@ public class ReqLocationMessage extends ReqBaseMessage {
 	 * @param scale
 	 * @param label
 	 */
-	public ReqLocationMessage(String location_X, String location_Y, String scale,
+	public ReqLocationMsg(String location_X, String location_Y, String scale,
 			String label) {
 		super();
 		Location_X = location_X;
@@ -56,7 +56,7 @@ public class ReqLocationMessage extends ReqBaseMessage {
 	 * @param scale
 	 * @param label
 	 */
-	public ReqLocationMessage(String toUserName, String fromUserName, long createTime, 
+	public ReqLocationMsg(String toUserName, String fromUserName, long createTime, 
 			String msgType, long msgId, String location_X, String location_Y, String scale,
 			String label) {
 		super(toUserName, fromUserName, createTime, msgType, msgId);

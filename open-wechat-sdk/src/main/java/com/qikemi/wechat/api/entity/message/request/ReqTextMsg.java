@@ -1,6 +1,6 @@
 package com.qikemi.wechat.api.entity.message.request;
 
-import com.qikemi.wechat.api.entity.message.RequestBaseMessage;
+import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
 
 
 /**
@@ -9,7 +9,7 @@ import com.qikemi.wechat.api.entity.message.RequestBaseMessage;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class TextMessage extends RequestBaseMessage {
+public class ReqTextMsg extends ReqBaseMessage {
 	
 	/**
 	 * 回复的消息内容
@@ -17,14 +17,14 @@ public class TextMessage extends RequestBaseMessage {
 	private String Content;
 
 	/**             constructor                  **/
-	public TextMessage() {
+	public ReqTextMsg() {
 		super();
 	}
 
 	/**
 	 * @param content
 	 */
-	public TextMessage(String content) {
+	public ReqTextMsg(String content) {
 		super();
 		Content = content;
 	}
@@ -37,7 +37,7 @@ public class TextMessage extends RequestBaseMessage {
 	 * @param msgId
 	 * @param content
 	 */
-	public TextMessage(String toUserName, String fromUserName, long createTime,
+	public ReqTextMsg(String toUserName, String fromUserName, long createTime,
 			String msgType, long msgId, String content) {
 		super(toUserName, fromUserName, createTime, msgType, msgId);
 		Content = content;
