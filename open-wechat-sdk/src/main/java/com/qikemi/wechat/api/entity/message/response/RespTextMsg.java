@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class RespTextMessage extends RespBaseMessage {
+public class RespTextMsg extends RespBaseMessage {
 	
 	/**
 	 * 回复的消息内容
@@ -19,14 +19,14 @@ public class RespTextMessage extends RespBaseMessage {
 	private String content;
 
 	/**             constructor                  **/
-	public RespTextMessage() {
+	public RespTextMsg() {
 		super();
 	}
 
 	/**
 	 * @param content
 	 */
-	public RespTextMessage(String content) {
+	public RespTextMsg(String content) {
 		super();
 		this.content = content;
 	}
@@ -39,7 +39,7 @@ public class RespTextMessage extends RespBaseMessage {
 	 * @param msgId
 	 * @param content
 	 */
-	public RespTextMessage(String toUserName, String fromUserName, long createTime,
+	public RespTextMsg(String toUserName, String fromUserName, long createTime,
 			String msgType, String content) {
 		super(toUserName, fromUserName, createTime, msgType);
 		this.content = content;
