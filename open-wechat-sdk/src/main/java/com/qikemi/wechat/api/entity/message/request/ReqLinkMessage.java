@@ -1,6 +1,6 @@
 package com.qikemi.wechat.api.entity.message.request;
 
-import com.qikemi.wechat.api.entity.message.RequestBaseMessage;
+import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
 
 /**
  * Link Message Bean 
@@ -8,7 +8,7 @@ import com.qikemi.wechat.api.entity.message.RequestBaseMessage;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class LinkMessage extends RequestBaseMessage {
+public class ReqLinkMessage extends ReqBaseMessage {
 	
 	/**
 	 * 标题
@@ -26,18 +26,18 @@ public class LinkMessage extends RequestBaseMessage {
 	private String Url;
 
 	/**             constructor                  **/
-	public LinkMessage() {
+	public ReqLinkMessage() {
 		super();
 	}
 
-	public LinkMessage(String title, String description, String url) {
+	public ReqLinkMessage(String title, String description, String url) {
 		super();
 		Title = title;
 		Description = description;
 		Url = url;
 	}
 	
-	public LinkMessage(String toUserName, String fromUserName, long createTime, 
+	public ReqLinkMessage(String toUserName, String fromUserName, long createTime, 
 			String msgType, long msgId, String title, String description, String url) {
 		super(toUserName, fromUserName, createTime, msgType, msgId);
 		Title = title;

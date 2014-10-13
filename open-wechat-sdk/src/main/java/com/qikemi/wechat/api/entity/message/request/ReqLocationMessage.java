@@ -1,6 +1,6 @@
 package com.qikemi.wechat.api.entity.message.request;
 
-import com.qikemi.wechat.api.entity.message.RequestBaseMessage;
+import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
 
 /**
  * Location Message bean
@@ -8,7 +8,7 @@ import com.qikemi.wechat.api.entity.message.RequestBaseMessage;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class LocationMessage extends RequestBaseMessage {
+public class ReqLocationMessage extends ReqBaseMessage {
 	
 	/**
 	 * 地理位置维度
@@ -31,7 +31,7 @@ public class LocationMessage extends RequestBaseMessage {
 	private String Label;
 
 	/**             constructor                  **/
-	public LocationMessage() {
+	public ReqLocationMessage() {
 		super();
 	}
 
@@ -41,7 +41,7 @@ public class LocationMessage extends RequestBaseMessage {
 	 * @param scale
 	 * @param label
 	 */
-	public LocationMessage(String location_X, String location_Y, String scale,
+	public ReqLocationMessage(String location_X, String location_Y, String scale,
 			String label) {
 		super();
 		Location_X = location_X;
@@ -56,7 +56,7 @@ public class LocationMessage extends RequestBaseMessage {
 	 * @param scale
 	 * @param label
 	 */
-	public LocationMessage(String toUserName, String fromUserName, long createTime, 
+	public ReqLocationMessage(String toUserName, String fromUserName, long createTime, 
 			String msgType, long msgId, String location_X, String location_Y, String scale,
 			String label) {
 		super(toUserName, fromUserName, createTime, msgType, msgId);
