@@ -1,6 +1,7 @@
 package com.qikemi.wechat.api.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
@@ -14,7 +15,9 @@ import org.apache.log4j.Logger;
 import com.qikemi.wechat.api.constant.WechatEventTypeConstant;
 import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
 import com.qikemi.wechat.api.entity.message.MsgTypeBean;
-import com.qikemi.wechat.api.service.MsgTypeService;
+import com.qikemi.wechat.api.entity.message.request.ReqTextMsg;
+import com.qikemi.wechat.api.service.RequestConvert2JavaBeanService;
+import com.qikemi.wechat.api.service.ResponseConvert2XMLService;
 import com.qikemi.wechat.api.service.SignService;
 
 /**
@@ -53,7 +56,11 @@ public class WechatServlet extends HttpServlet {
 		} catch (IOException e) {
 			logger.error("doGet() IOException -->" + e.getMessage());
 		} catch (Exception e) {
+			out.print("Missing Parameters.");
 			logger.error("doGet() 参数缺失Exception -->" + e.getMessage());
+		} finally {
+			out.flush();
+			out.close();
 		}
 	}
 
@@ -67,11 +74,20 @@ public class WechatServlet extends HttpServlet {
 		} catch (UnsupportedEncodingException e1) {
 			logger.error("req编码错误：" + e1.getMessage());
 		}
+		// inputStream and PrintWriter 
+		InputStream in = req.getInputStream();
+		PrintWriter out = resp.getWriter();
+		// 初始化RequestConvertService/ResponseConvertService 
+		RequestConvert2JavaBeanService requestConvert2JavaBeanService = new RequestConvert2JavaBeanService(in);
+		ResponseConvert2XMLService responseConvert2XMLService = new ResponseConvert2XMLService();
 		// 接受信息 
-		MsgTypeBean msgTypeBean = MsgTypeService.get(req);
+		MsgTypeBean msgTypeBean = requestConvert2JavaBeanService.getMsgTypeBean();
+//		logger.debug(msgTypeBean.toString());
 		// 获取消息类型 
 		String msgType = msgTypeBean.getMsgType();
-		
+		// 相应服务器接受到消息 
+		out.print("");
+		out.flush();
 		/**
 		 * 1 文本消息
 		 * 2 图片消息
@@ -82,9 +98,15 @@ public class WechatServlet extends HttpServlet {
 		 * 7 事件 
 		 */
 		switch(msgType){
-			
 			case WechatReqMsgTypeConstant.TEXT:
 				// 1 文本消息
+				ReqTextMsg textMessage = requestConvert2JavaBeanService.getTextMessage();
+				logger.debug(textMessage.toString());
+				String content = "你好";
+				String resText = responseConvert2XMLService.getTextMessage(textMessage, content);
+				logger.debug(resText.toString());
+				out.print(resText);
+				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.IMAGE:
 				// 2 图片消息
@@ -142,9 +164,7 @@ public class WechatServlet extends HttpServlet {
 				logger.warn("Wechat Interface Accept UnKnow MsgType -> " + msgTypeBean.toString());
 		}
 		
-		logger.debug(msgTypeBean.toString());
 		
 		
-		super.doPost(req, resp);
 	}
 }
