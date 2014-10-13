@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class RespBaseMessage {
+public class RespBaseMsg {
 	
 	/**
 	 * 开发者微信号
@@ -34,11 +34,11 @@ public class RespBaseMessage {
 	@XStreamAlias("MsgType")
 	private String MsgType;
 
-	public RespBaseMessage() {
+	public RespBaseMsg() {
 		super();
 	}
 
-	public RespBaseMessage(String toUserName, String fromUserName,
+	public RespBaseMsg(String toUserName, String fromUserName,
 			long createTime, String msgType) {
 		super();
 		ToUserName = toUserName;

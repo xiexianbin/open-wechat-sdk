@@ -1,6 +1,6 @@
 package com.qikemi.wechat.api.entity.message.response;
 
-import com.qikemi.wechat.api.entity.message.RespBaseMessage;
+import com.qikemi.wechat.api.entity.message.RespBaseMsg;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 
@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class RespTextMsg extends RespBaseMessage {
+public class RespTextMsg extends RespBaseMsg {
 	
 	/**
 	 * 回复的消息内容

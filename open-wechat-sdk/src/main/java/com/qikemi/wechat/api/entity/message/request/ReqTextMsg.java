@@ -1,6 +1,6 @@
 package com.qikemi.wechat.api.entity.message.request;
 
-import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
+import com.qikemi.wechat.api.entity.message.ReqBaseMsg;
 
 
 /**
@@ -9,7 +9,7 @@ import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class ReqTextMsg extends ReqBaseMessage {
+public class ReqTextMsg extends ReqBaseMsg {
 	
 	/**
 	 * 回复的消息内容

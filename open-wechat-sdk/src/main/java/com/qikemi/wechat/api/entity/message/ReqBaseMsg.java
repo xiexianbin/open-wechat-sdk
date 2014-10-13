@@ -6,7 +6,7 @@ package com.qikemi.wechat.api.entity.message;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class ReqBaseMessage {
+public class ReqBaseMsg {
 	
 	/**
 	 * 开发者微信号
@@ -34,11 +34,11 @@ public class ReqBaseMessage {
 	private long MsgId;
 
 	/**             constructor                  **/
-	public ReqBaseMessage() {
+	public ReqBaseMsg() {
 		super();
 	}
 
-	public ReqBaseMessage(String toUserName, String fromUserName,
+	public ReqBaseMsg(String toUserName, String fromUserName,
 			long createTime, String msgType, long msgId) {
 		super();
 		ToUserName = toUserName;

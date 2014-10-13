@@ -1,6 +1,6 @@
 package com.qikemi.wechat.api.entity.message.request;
 
-import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
+import com.qikemi.wechat.api.entity.message.ReqBaseMsg;
 
 /**
  * Location Message bean
@@ -8,7 +8,7 @@ import com.qikemi.wechat.api.entity.message.ReqBaseMessage;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class ReqLocationMsg extends ReqBaseMessage {
+public class ReqLocationMsg extends ReqBaseMsg {
 	
 	/**
 	 * 地理位置维度
