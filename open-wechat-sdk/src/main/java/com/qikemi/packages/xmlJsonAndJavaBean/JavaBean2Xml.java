@@ -1,7 +1,7 @@
 package com.qikemi.packages.xmlJsonAndJavaBean;
 
-import org.json.JSONObject;
-import org.json.XML;
+import com.qikemi.packages.xmlJsonAndJavaBean.xstream.XstreamUtil;
+import com.thoughtworks.xstream.XStream;
 
 /**
  * 
@@ -12,12 +12,13 @@ import org.json.XML;
 public class JavaBean2Xml {
 
 	public static String convert2Xml(Object object){
-		JSONObject o = new JSONObject(object);
-		return XML.toString(o);
+		XStream xstream = XstreamUtil.getXStream();
+		return xstream.toXML(object);
 	}
 	
 	public static String convert2Xml(Object object, String root){
-		 JSONObject jsonobject = new JSONObject(object);
-		 return XML.toString(jsonobject, root);
+		XStream xstream = XstreamUtil.getXStream();
+		xstream.alias(root, object.getClass());
+		return xstream.toXML(object);
 	}
 }
