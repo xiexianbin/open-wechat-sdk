@@ -15,7 +15,9 @@ import org.apache.log4j.Logger;
 import com.qikemi.wechat.api.constant.WechatEventTypeConstant;
 import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
 import com.qikemi.wechat.api.entity.message.MsgTypeBean;
+import com.qikemi.wechat.api.entity.message.request.ReqImageMsg;
 import com.qikemi.wechat.api.entity.message.request.ReqTextMsg;
+import com.qikemi.wechat.api.entity.message.response.baseBean.ImageBean;
 import com.qikemi.wechat.api.service.RequestConvert2JavaBeanService;
 import com.qikemi.wechat.api.service.ResponseConvert2XMLService;
 import com.qikemi.wechat.api.service.SignService;
@@ -100,16 +102,35 @@ public class WechatServlet extends HttpServlet {
 		switch(msgType){
 			case WechatReqMsgTypeConstant.TEXT:
 				// 1 文本消息
-				ReqTextMsg textMessage = requestConvert2JavaBeanService.getTextMessage();
-				logger.debug(textMessage.toString());
+				ReqTextMsg textMsg = requestConvert2JavaBeanService.getTextMessage();
+				logger.debug(textMsg.toString());
 				String content = "你好";
-				String resText = responseConvert2XMLService.getTextMessage(textMessage, content);
+				String resText = responseConvert2XMLService.getTextMessage(msgTypeBean, content);
 				logger.debug(resText.toString());
 				out.print(resText);
 				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.IMAGE:
 				// 2 图片消息
+				ReqImageMsg imageMsg = requestConvert2JavaBeanService.getImageMessage();
+				logger.debug(imageMsg.toString());
+				
+//				String resImage = responseConvert2XMLService.getImageMessage(msgTypeBean, new ImageBean(imageMsg.getMediaId()));
+//				logger.debug(resImage.toString());
+//				String re = "<xml>"
+//					  + "<ToUserName><![CDATA[o5Fnut7UVGLADFJxQAMmkR3r_63s]]></ToUserName>"
+//					  + "<FromUserName><![CDATA[gh_abc80555be2d]]></FromUserName>"
+//					  + "<CreateTime><![CDATA[1413474020]]></CreateTime>"
+//					  + "<MsgType><![CDATA[image]]></MsgType>"
+//					  + "<Image>"
+//					  + "    <MediaId><![CDATA[" + imageMsg.getMediaId() + "]]></MediaId>"
+//					  + "</Image>"
+//					+ "</xml>";
+				content = "你好";
+				resText = responseConvert2XMLService.getTextMessage(msgTypeBean, content);
+				logger.debug(resText.toString());
+				out.print(resText);
+				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.VOICE:
 				// 3 语音消息
