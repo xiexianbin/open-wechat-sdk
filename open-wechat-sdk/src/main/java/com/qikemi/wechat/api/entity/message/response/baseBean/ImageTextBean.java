@@ -9,7 +9,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
 @XStreamAlias("item")
-public class ImgTextBean {
+public class ImageTextBean {
 
 	@XStreamAlias("Title")
 	private String Title;
@@ -21,10 +21,10 @@ public class ImgTextBean {
 	private String Url;
 	
 	/**             constructor                  **/
-	public ImgTextBean() {
+	public ImageTextBean() {
 	}
 	
-	public ImgTextBean(String title, String description, String picUrl,
+	public ImageTextBean(String title, String description, String picUrl,
 			String url) {
 		Title = title;
 		Description = description;
@@ -60,7 +60,7 @@ public class ImgTextBean {
 	
 	@Override
 	public String toString() {
-		return "ImgTextBean [Title=" + Title + ", Description=" + Description
+		return "ImageTextBean [Title=" + Title + ", Description=" + Description
 				+ ", PicUrl=" + PicUrl + ", Url=" + Url + ", getTitle()="
 				+ getTitle() + ", getDescription()=" + getDescription()
 				+ ", getPicUrl()=" + getPicUrl() + ", getUrl()=" + getUrl()
