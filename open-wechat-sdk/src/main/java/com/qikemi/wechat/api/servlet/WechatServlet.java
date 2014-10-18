@@ -115,21 +115,9 @@ public class WechatServlet extends HttpServlet {
 				ReqImageMsg imageMsg = requestConvert2JavaBeanService.getImageMessage();
 				logger.debug(imageMsg.toString());
 				
-//				String resImage = responseConvert2XMLService.getImageMessage(msgTypeBean, new ImageBean(imageMsg.getMediaId()));
-//				logger.debug(resImage.toString());
-//				String re = "<xml>"
-//					  + "<ToUserName><![CDATA[o5Fnut7UVGLADFJxQAMmkR3r_63s]]></ToUserName>"
-//					  + "<FromUserName><![CDATA[gh_abc80555be2d]]></FromUserName>"
-//					  + "<CreateTime><![CDATA[1413474020]]></CreateTime>"
-//					  + "<MsgType><![CDATA[image]]></MsgType>"
-//					  + "<Image>"
-//					  + "    <MediaId><![CDATA[" + imageMsg.getMediaId() + "]]></MediaId>"
-//					  + "</Image>"
-//					+ "</xml>";
-				content = "你好";
-				resText = responseConvert2XMLService.getTextMessage(msgTypeBean, content);
-				logger.debug(resText.toString());
-				out.print(resText);
+				String resImage = responseConvert2XMLService.getImageMessage(msgTypeBean, new ImageBean(imageMsg.getMediaId()));
+				logger.debug(resImage.toString());
+				out.print(resImage);
 				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.VOICE:
