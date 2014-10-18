@@ -7,7 +7,11 @@ import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
 import com.qikemi.wechat.api.entity.message.MsgTypeBean;
 import com.qikemi.wechat.api.entity.message.response.RespImageMsg;
 import com.qikemi.wechat.api.entity.message.response.RespTextMsg;
+import com.qikemi.wechat.api.entity.message.response.RespVideoMsg;
+import com.qikemi.wechat.api.entity.message.response.RespVoiceMsg;
 import com.qikemi.wechat.api.entity.message.response.baseBean.ImageBean;
+import com.qikemi.wechat.api.entity.message.response.baseBean.VideoBean;
+import com.qikemi.wechat.api.entity.message.response.baseBean.VoiceBean;
 
 /**
  * Response Convert 2 XML 
@@ -30,7 +34,7 @@ public class ResponseConvert2XMLService {
 	 * @param content
 	 * @return
 	 */
-	public String getTextMessage(MsgTypeBean msgTypeBean, String content){
+	public String getTextMsg(MsgTypeBean msgTypeBean, String content){
 		RespTextMsg resTextMessage = new RespTextMsg();
 		resTextMessage.setFromUserName(msgTypeBean.getToUserName());
 		resTextMessage.setToUserName(msgTypeBean.getFromUserName());
@@ -46,7 +50,7 @@ public class ResponseConvert2XMLService {
 	 * @param image
 	 * @return
 	 */
-	public String getImageMessage(MsgTypeBean msgTypeBean, ImageBean imageBean){
+	public String getImageMsg(MsgTypeBean msgTypeBean, ImageBean imageBean){
 		RespImageMsg respImageMsg = new RespImageMsg();
 		respImageMsg.setFromUserName(msgTypeBean.getToUserName());
 		respImageMsg.setToUserName(msgTypeBean.getFromUserName());
@@ -55,5 +59,39 @@ public class ResponseConvert2XMLService {
 		respImageMsg.setCreateTime(System.currentTimeMillis()/1000);
 		respImageMsg.setMsgType(WechatReqMsgTypeConstant.IMAGE);
 		return JavaBean2Xml.convert2Xml(respImageMsg, "xml");
+	}
+
+	/**
+	 * get Voice Message xml 
+	 * @param msgTypeBean
+	 * @param imageBean
+	 * @return
+	 */
+	public String getVoiceMsg(MsgTypeBean msgTypeBean, VoiceBean voiceBean) {
+		RespVoiceMsg respVoiceMsg = new RespVoiceMsg();
+		respVoiceMsg.setFromUserName(msgTypeBean.getToUserName());
+		respVoiceMsg.setToUserName(msgTypeBean.getFromUserName());
+		
+		respVoiceMsg.setVoiceBean(voiceBean);
+		respVoiceMsg.setCreateTime(System.currentTimeMillis()/1000);
+		respVoiceMsg.setMsgType(WechatReqMsgTypeConstant.VOICE);
+		return JavaBean2Xml.convert2Xml(respVoiceMsg, "xml");
+	}
+
+	/**
+	 * get Video Message xml 
+	 * @param msgTypeBean
+	 * @param videoBean
+	 * @return
+	 */
+	public String getVideoMsg(MsgTypeBean msgTypeBean, VideoBean videoBean) {
+		RespVideoMsg respVideoMsg = new RespVideoMsg();
+		respVideoMsg.setFromUserName(msgTypeBean.getToUserName());
+		respVideoMsg.setToUserName(msgTypeBean.getFromUserName());
+		
+		respVideoMsg.setVideoBean(videoBean);
+		respVideoMsg.setCreateTime(System.currentTimeMillis()/1000);
+		respVideoMsg.setMsgType(WechatReqMsgTypeConstant.VIDEO);
+		return JavaBean2Xml.convert2Xml(respVideoMsg, "xml");
 	}
 }
