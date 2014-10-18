@@ -1,8 +1,5 @@
 package com.qikemi.wechat.api.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 
 import com.qikemi.packages.xmlJsonAndJavaBean.JavaBean2Xml;
@@ -54,9 +51,7 @@ public class ResponseConvert2XMLService {
 		respImageMsg.setFromUserName(msgTypeBean.getToUserName());
 		respImageMsg.setToUserName(msgTypeBean.getFromUserName());
 		
-		List<ImageBean> images = new ArrayList<ImageBean>();
-		images.add(imageBean);
-		respImageMsg.setImageBeans(images);
+		respImageMsg.setImageBeans(imageBean);
 		respImageMsg.setCreateTime(System.currentTimeMillis()/1000);
 		respImageMsg.setMsgType(WechatReqMsgTypeConstant.IMAGE);
 		return JavaBean2Xml.convert2Xml(respImageMsg, "xml");
