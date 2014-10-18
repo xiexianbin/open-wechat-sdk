@@ -1,15 +1,21 @@
 package com.qikemi.wechat.api.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.qikemi.packages.xmlJsonAndJavaBean.JavaBean2Xml;
 import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
+import com.qikemi.wechat.api.constant.WechatRespMsgTypeConstant;
 import com.qikemi.wechat.api.entity.message.MsgTypeBean;
 import com.qikemi.wechat.api.entity.message.response.RespImageMsg;
+import com.qikemi.wechat.api.entity.message.response.RespImageTextMsg;
 import com.qikemi.wechat.api.entity.message.response.RespTextMsg;
 import com.qikemi.wechat.api.entity.message.response.RespVideoMsg;
 import com.qikemi.wechat.api.entity.message.response.RespVoiceMsg;
 import com.qikemi.wechat.api.entity.message.response.baseBean.ImageBean;
+import com.qikemi.wechat.api.entity.message.response.baseBean.ImageTextBean;
 import com.qikemi.wechat.api.entity.message.response.baseBean.VideoBean;
 import com.qikemi.wechat.api.entity.message.response.baseBean.VoiceBean;
 
@@ -93,5 +99,16 @@ public class ResponseConvert2XMLService {
 		respVideoMsg.setCreateTime(System.currentTimeMillis()/1000);
 		respVideoMsg.setMsgType(WechatReqMsgTypeConstant.VIDEO);
 		return JavaBean2Xml.convert2Xml(respVideoMsg, "xml");
+	}
+	
+	public String getImageTextMsg(MsgTypeBean msgTypeBean, List<ImageTextBean> imageTextList){
+		RespImageTextMsg imageTextMsg = new RespImageTextMsg();
+		imageTextMsg.setToUserName(msgTypeBean.getFromUserName());
+		imageTextMsg.setFromUserName(msgTypeBean.getToUserName());
+		imageTextMsg.setArticleCount(1);
+		imageTextMsg.setCreateTime(System.currentTimeMillis() / 1000);
+		imageTextMsg.setMsgType(WechatRespMsgTypeConstant.NEWS);
+		imageTextMsg.setImgTextList(imageTextList);
+		return JavaBean2Xml.convert2Xml(imageTextMsg, "xml");
 	}
 }
