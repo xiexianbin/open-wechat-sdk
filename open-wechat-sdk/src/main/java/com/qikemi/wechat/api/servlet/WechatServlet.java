@@ -16,8 +16,13 @@ import com.qikemi.wechat.api.constant.WechatEventTypeConstant;
 import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
 import com.qikemi.wechat.api.entity.message.MsgTypeBean;
 import com.qikemi.wechat.api.entity.message.request.ReqImageMsg;
+import com.qikemi.wechat.api.entity.message.request.ReqLocationMsg;
 import com.qikemi.wechat.api.entity.message.request.ReqTextMsg;
+import com.qikemi.wechat.api.entity.message.request.ReqVideoMsg;
+import com.qikemi.wechat.api.entity.message.request.ReqVoiceMsg;
 import com.qikemi.wechat.api.entity.message.response.baseBean.ImageBean;
+import com.qikemi.wechat.api.entity.message.response.baseBean.VideoBean;
+import com.qikemi.wechat.api.entity.message.response.baseBean.VoiceBean;
 import com.qikemi.wechat.api.service.RequestConvert2JavaBeanService;
 import com.qikemi.wechat.api.service.ResponseConvert2XMLService;
 import com.qikemi.wechat.api.service.SignService;
@@ -83,7 +88,7 @@ public class WechatServlet extends HttpServlet {
 		RequestConvert2JavaBeanService requestConvert2JavaBeanService = new RequestConvert2JavaBeanService(in);
 		ResponseConvert2XMLService responseConvert2XMLService = new ResponseConvert2XMLService();
 		// 接受信息 
-		MsgTypeBean msgTypeBean = requestConvert2JavaBeanService.getMsgTypeBean();
+		MsgTypeBean msgTypeBean = (MsgTypeBean) requestConvert2JavaBeanService.convert(MsgTypeBean.class);
 //		logger.debug(msgTypeBean.toString());
 		// 获取消息类型 
 		String msgType = msgTypeBean.getMsgType();
@@ -102,32 +107,53 @@ public class WechatServlet extends HttpServlet {
 		switch(msgType){
 			case WechatReqMsgTypeConstant.TEXT:
 				// 1 文本消息
-				ReqTextMsg textMsg = requestConvert2JavaBeanService.getTextMessage();
+				ReqTextMsg textMsg = (ReqTextMsg) requestConvert2JavaBeanService.convert(ReqTextMsg.class);
 				logger.debug(textMsg.toString());
 				String content = "你好";
-				String resText = responseConvert2XMLService.getTextMessage(msgTypeBean, content);
+				String resText = responseConvert2XMLService.getTextMsg(msgTypeBean, content);
 				logger.debug(resText.toString());
 				out.print(resText);
 				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.IMAGE:
 				// 2 图片消息
-				ReqImageMsg imageMsg = requestConvert2JavaBeanService.getImageMessage();
+				ReqImageMsg imageMsg = (ReqImageMsg) requestConvert2JavaBeanService.convert(ReqImageMsg.class);
 				logger.debug(imageMsg.toString());
 				
-				String resImage = responseConvert2XMLService.getImageMessage(msgTypeBean, new ImageBean(imageMsg.getMediaId()));
+				String resImage = responseConvert2XMLService.getImageMsg(msgTypeBean, new ImageBean(imageMsg.getMediaId()));
 				logger.debug(resImage.toString());
 				out.print(resImage);
 				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.VOICE:
 				// 3 语音消息
+				ReqVoiceMsg voiceMsg = (ReqVoiceMsg) requestConvert2JavaBeanService.convert(ReqVoiceMsg.class);
+				logger.debug(voiceMsg.toString());
+				
+				String resVoice = responseConvert2XMLService.getVoiceMsg(msgTypeBean, new VoiceBean(voiceMsg.getMediaId()));
+				logger.debug(resVoice.toString());
+				out.print(resVoice);
+				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.VIDEO:
 				// 4 视频消息
+				ReqVideoMsg videoMsg = (ReqVideoMsg) requestConvert2JavaBeanService.convert(ReqVideoMsg.class); 
+				logger.debug(videoMsg.toString());
+				
+				String resVideo = responseConvert2XMLService.getVideoMsg(msgTypeBean, new VideoBean(videoMsg.getMediaId(), "title", "description"));
+				logger.debug(resVideo.toString());
+				out.print(resVideo);
+				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.LOCATION:
 				// 5 地理位置消息
+				ReqLocationMsg locationMsg = (ReqLocationMsg) requestConvert2JavaBeanService.convert(ReqLocationMsg.class);
+				logger.debug(locationMsg.toString());
+				
+				resText = responseConvert2XMLService.getTextMsg(msgTypeBean, locationMsg.getLabel() + locationMsg.getLocation_X() + locationMsg.getLocation_Y() + locationMsg.getScale());
+				logger.debug(resText.toString());
+				out.print(resText);
+				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.LINK:
 				// 6 链接消息
