@@ -11,17 +11,17 @@ import com.qikemi.wechat.api.entity.message.ReqBaseMsg;
 public class ReqLinkMsg extends ReqBaseMsg {
 	
 	/**
-	 * 标题
+	 * 消息标题
 	 */
 	private String Title;
 	
 	/**
-	 * 描述
+	 * 消息描述
 	 */
 	private String Description;
 	
 	/**
-	 * 链接
+	 * 消息链接
 	 */
 	private String Url;
 
