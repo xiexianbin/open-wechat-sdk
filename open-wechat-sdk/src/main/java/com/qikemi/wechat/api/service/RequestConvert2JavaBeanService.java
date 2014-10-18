@@ -49,7 +49,7 @@ public class RequestConvert2JavaBeanService {
 	 * @param o
 	 * @return
 	 */
-	public Object convertRep2JaveBean(Class<?> c) {
+	public Object convert(Class<?> c) {
 		return Xml2JavaBean.convert2JavaBean(this.xml, c);
 	}
 }
