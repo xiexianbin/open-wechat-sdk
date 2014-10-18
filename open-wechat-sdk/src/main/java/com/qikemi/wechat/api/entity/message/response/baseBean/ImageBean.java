@@ -16,9 +16,7 @@ public class ImageBean {
 	@XStreamAlias("MediaId")
 	private String MediaId;
 
-	/**
-	 * 
-	 */
+	/**             constructor                  **/
 	public ImageBean() {
 	}
 
@@ -29,6 +27,7 @@ public class ImageBean {
 		MediaId = mediaId;
 	}
 
+	/**           getters and setters            **/
 	public String getMediaId() {
 		return MediaId;
 	}
