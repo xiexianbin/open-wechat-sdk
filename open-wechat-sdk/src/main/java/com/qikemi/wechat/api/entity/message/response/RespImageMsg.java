@@ -18,6 +18,7 @@ public class RespImageMsg extends RespBaseMsg {
 	@XStreamAlias("Image")
 	private ImageBean imageBeans;
 
+	/**             constructor                  **/
 	public RespImageMsg() {
 		super();
 	}
@@ -26,6 +27,7 @@ public class RespImageMsg extends RespBaseMsg {
 		this.imageBeans = imageBeans;
 	}
 
+	/**           getters and setters            **/
 	public RespImageMsg(String toUserName, String fromUserName,
 			long createTime, String msgType, ImageBean imageBeans) {
 		super(toUserName, fromUserName, createTime, msgType);
