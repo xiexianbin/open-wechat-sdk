@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,13 +16,17 @@ import org.apache.log4j.Logger;
 
 import com.qikemi.wechat.api.constant.WechatEventTypeConstant;
 import com.qikemi.wechat.api.constant.WechatReqMsgTypeConstant;
+import com.qikemi.wechat.api.constant.WechatRespMsgTypeConstant;
 import com.qikemi.wechat.api.entity.message.MsgTypeBean;
 import com.qikemi.wechat.api.entity.message.request.ReqImageMsg;
+import com.qikemi.wechat.api.entity.message.request.ReqLinkMsg;
 import com.qikemi.wechat.api.entity.message.request.ReqLocationMsg;
 import com.qikemi.wechat.api.entity.message.request.ReqTextMsg;
 import com.qikemi.wechat.api.entity.message.request.ReqVideoMsg;
 import com.qikemi.wechat.api.entity.message.request.ReqVoiceMsg;
+import com.qikemi.wechat.api.entity.message.response.RespImageTextMsg;
 import com.qikemi.wechat.api.entity.message.response.baseBean.ImageBean;
+import com.qikemi.wechat.api.entity.message.response.baseBean.ImageTextBean;
 import com.qikemi.wechat.api.entity.message.response.baseBean.VideoBean;
 import com.qikemi.wechat.api.entity.message.response.baseBean.VoiceBean;
 import com.qikemi.wechat.api.service.RequestConvert2JavaBeanService;
@@ -109,10 +115,17 @@ public class WechatServlet extends HttpServlet {
 				// 1 文本消息
 				ReqTextMsg textMsg = (ReqTextMsg) requestConvert2JavaBeanService.convert(ReqTextMsg.class);
 				logger.debug(textMsg.toString());
-				String content = "你好";
-				String resText = responseConvert2XMLService.getTextMsg(msgTypeBean, content);
-				logger.debug(resText.toString());
-				out.print(resText);
+//				String content = "你好";
+//				String resText = responseConvert2XMLService.getTextMsg(msgTypeBean, content);
+				List<ImageTextBean> itbs = new ArrayList<ImageTextBean>();
+				for(int i=0; i<1; i++){
+					ImageTextBean itb = new ImageTextBean("title", "description", "http://www.baidu.com/img/bdlogo.png", "http://www.baidu.com/img/bdlogo.png");
+					itbs.add(itb);
+				}
+				String imageText = responseConvert2XMLService.getImageTextMsg(msgTypeBean, itbs);
+				
+				logger.debug(imageText.toString());
+				out.print(imageText);
 				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.IMAGE:
@@ -150,13 +163,18 @@ public class WechatServlet extends HttpServlet {
 				ReqLocationMsg locationMsg = (ReqLocationMsg) requestConvert2JavaBeanService.convert(ReqLocationMsg.class);
 				logger.debug(locationMsg.toString());
 				
-				resText = responseConvert2XMLService.getTextMsg(msgTypeBean, locationMsg.getLabel() + locationMsg.getLocation_X() + locationMsg.getLocation_Y() + locationMsg.getScale());
+				String resText = responseConvert2XMLService.getTextMsg(msgTypeBean, locationMsg.getLabel() + locationMsg.getLocation_X() + locationMsg.getLocation_Y() + locationMsg.getScale());
 				logger.debug(resText.toString());
 				out.print(resText);
 				out.flush();
 				break;
 			case WechatReqMsgTypeConstant.LINK:
 				// 6 链接消息
+				ReqLinkMsg linkMsg = (ReqLinkMsg) requestConvert2JavaBeanService.convert(ReqLinkMsg.class);
+				logger.debug(linkMsg.toString());
+				
+				
+				
 				break;
 			case WechatReqMsgTypeConstant.EVENT:
 				/**
