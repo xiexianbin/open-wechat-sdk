@@ -3,7 +3,7 @@ package com.qikemi.wechat.api.entity.message.response;
 import java.util.List;
 
 import com.qikemi.wechat.api.entity.message.RespBaseMsg;
-import com.qikemi.wechat.api.entity.message.response.baseBean.ImgTextBean;
+import com.qikemi.wechat.api.entity.message.response.baseBean.ImageTextBean;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
@@ -12,7 +12,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * Author XieXianbin<a.b@hotmail.com>
  * Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
  */
-public class RespImgTextMsg extends RespBaseMsg {
+public class RespImageTextMsg extends RespBaseMsg {
 
 	/**
 	 * 图文消息个数，限制为10条以内
@@ -23,19 +23,19 @@ public class RespImgTextMsg extends RespBaseMsg {
 	 * 多条图文消息信息，默认第一个item为大图,注意，如果图文数超过10，则将会无响应
 	 */
 	@XStreamAlias("Articles")
-	private List<ImgTextBean> imgTextList;
+	private List<ImageTextBean> imgTextList;
 	
 	/**             constructor                  **/
-	public RespImgTextMsg() {
+	public RespImageTextMsg() {
 	}
 	
-	public RespImgTextMsg(Integer articleCount, List<ImgTextBean> imgTextList) {
+	public RespImageTextMsg(Integer articleCount, List<ImageTextBean> imgTextList) {
 		ArticleCount = articleCount;
 		this.imgTextList = imgTextList;
 	}
 	
-	public RespImgTextMsg(String toUserName, String fromUserName,
-			long createTime, String msgType, Integer articleCount, List<ImgTextBean> imgTextList) {
+	public RespImageTextMsg(String toUserName, String fromUserName,
+			long createTime, String msgType, Integer articleCount, List<ImageTextBean> imgTextList) {
 		super(toUserName, fromUserName, createTime, msgType);
 		ArticleCount = articleCount;
 		this.imgTextList = imgTextList;
@@ -48,15 +48,15 @@ public class RespImgTextMsg extends RespBaseMsg {
 	public void setArticleCount(Integer articleCount) {
 		ArticleCount = articleCount;
 	}
-	public List<ImgTextBean> getImgTextList() {
+	public List<ImageTextBean> getImgTextList() {
 		return imgTextList;
 	}
-	public void setImgTextList(List<ImgTextBean> imgTextList) {
+	public void setImgTextList(List<ImageTextBean> imgTextList) {
 		this.imgTextList = imgTextList;
 	}
 	@Override
 	public String toString() {
-		return "RespImgTextMsg [ArticleCount=" + ArticleCount
+		return "RespImageTextMsg [ArticleCount=" + ArticleCount
 				+ ", imgTextList=" + imgTextList + ", getArticleCount()="
 				+ getArticleCount() + ", getImgTextList()=" + getImgTextList()
 				+ ", getToUserName()=" + getToUserName()
