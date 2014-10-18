@@ -1,7 +1,5 @@
 package com.qikemi.wechat.api.entity.message.response;
 
-import java.util.List;
-
 import com.qikemi.wechat.api.entity.message.RespBaseMsg;
 import com.qikemi.wechat.api.entity.message.response.baseBean.ImageBean;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
@@ -18,27 +16,27 @@ public class RespImageMsg extends RespBaseMsg {
 	 * Image Bean 
 	 */
 	@XStreamAlias("Image")
-	private List<ImageBean> imageBeans;
+	private ImageBean imageBeans;
 
 	public RespImageMsg() {
 		super();
 	}
 
-	public RespImageMsg(List<ImageBean> imageBeans) {
+	public RespImageMsg(ImageBean imageBeans) {
 		this.imageBeans = imageBeans;
 	}
 
 	public RespImageMsg(String toUserName, String fromUserName,
-			long createTime, String msgType, List<ImageBean> imageBeans) {
+			long createTime, String msgType, ImageBean imageBeans) {
 		super(toUserName, fromUserName, createTime, msgType);
 		this.imageBeans = imageBeans;
 	}
 
-	public List<ImageBean> getImageBeans() {
+	public ImageBean getImageBeans() {
 		return imageBeans;
 	}
 
-	public void setImageBeans(List<ImageBean> imageBeans) {
+	public void setImageBeans(ImageBean imageBeans) {
 		this.imageBeans = imageBeans;
 	}
 
@@ -52,5 +50,5 @@ public class RespImageMsg extends RespBaseMsg {
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ "]";
 	}
-
+	
 }
