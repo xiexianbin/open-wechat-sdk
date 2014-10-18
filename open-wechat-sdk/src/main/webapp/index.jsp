@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Welcome to QiKeMi Group</title>
 </head>
 <body>
-12
+<div style="height: 500px; width: 1000px; margin: 0 auto; padding-top: 100px;">Welcome to QiKeMi Group, open-wechat-sdk default page, The service is running now.</div>
 </body>
 </html>
