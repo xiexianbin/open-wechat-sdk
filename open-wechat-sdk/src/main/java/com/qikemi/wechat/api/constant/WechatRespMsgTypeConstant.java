@@ -11,30 +11,30 @@ public class WechatRespMsgTypeConstant {
 	/**
 	 * 返回消息类型：文本
 	 */
-	public static final String RESP_MSG_TYPE_TEXT = "text";
+	public static final String TEXT = "text";
 	
 	/**
 	 * 返回消息类型：图片
 	 */
-	public static final String RESP_MSG_TYPE_IMAGE = "image";
+	public static final String IMAGE = "image";
 	
 	/**
 	 * 返回消息类型：语音
 	 */
-	public static final String RESP_MSG_TYPE_VOICE = "voice";
+	public static final String VOICE = "voice";
 	
 	/**
 	 * 返回消息类型：视频
 	 */
-	public static final String RESP_MSG_TYPE_VIDEO = "video";
+	public static final String VIDEO = "video";
 	
 	/**
 	 * 返回消息类型：音乐
 	 */
-	public static final String RESP_MSG_TYPE_MUSIC = "music";
+	public static final String MUSIC = "music";
 	
 	/**
-	 * 返回消息类型：图文
+	 * 返回消息类型：多图文
 	 */
-	public static final String RESP_MSG_TYPE_NEWS = "news";
+	public static final String NEWS = "news";
 }
