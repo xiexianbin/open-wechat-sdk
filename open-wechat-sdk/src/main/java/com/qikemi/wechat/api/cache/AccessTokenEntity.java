@@ -3,9 +3,9 @@ package com.qikemi.wechat.api.cache;
 public class AccessTokenEntity {
 
 	private String appId;
-	// ΢�Ż�ȡ����ƾ֤ 
+	// 微信获取到的凭证 
 	private String accessToken;
-	// ƾ֤��Чʱ������ֵ 
+	// 凭证有效时间的最大值 
 	private long timeOut;
 	
 	public AccessTokenEntity() {
